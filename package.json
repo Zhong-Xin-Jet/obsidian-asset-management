@@ -1,0 +1,12 @@
+{
+  "name": "obsidian-asset-management",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Obsidian 资产管理插件（零外部构建依赖）",
+  "scripts": {
+    "build": "node scripts/build.cjs",
+    "test": "node --test tests/*.test.cjs",
+    "release": "node scripts/release.cjs"
+  },
+  "engines": { "node": ">=22" }
+}

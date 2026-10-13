@@ -1,0 +1,10 @@
+{
+  "id": "asset-management",
+  "name": "Asset Management",
+  "version": "0.1.0",
+  "minAppVersion": "1.5.0",
+  "description": "资产全生命周期管理：实物、订阅、永久授权和预付权益。",
+  "author": "Dilyar / Obsidian migration",
+  "authorUrl": "https://github.com/DilyarEziz/siyuan-plugin-asset-management",
+  "isDesktopOnly": true
+}
