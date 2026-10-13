@@ -335,7 +335,9 @@ function validateFinancialReplacementChain(events) {
         if (original.assetId !== event.assetId || original.currency !== event.currency) errors.push('financialEvents[' + index + '] replacement owner/currency mismatch');
         if (original.eventType !== event.eventType || original.direction !== event.direction) errors.push('financialEvents[' + index + '] replacement must preserve eventType and direction');
         if (original.voidedAt == null) errors.push('financialEvents[' + index + '] replaced original must be voided');
-        if (event.voidedAt != null) errors.push('financialEvents[' + index + '] replacement must be active');
+        if (event.voidedAt != null && !events.some(next => next && next.replacesEventId === event.id)) {
+            errors.push('financialEvents[' + index + '] voided replacement must have a successor');
+        }
         replacementCounts.set(original.id, (replacementCounts.get(original.id) || 0) + 1);
     });
     replacementCounts.forEach((count, id) => { if (count > 1) errors.push('financial event ' + id + ' has multiple replacements'); });
